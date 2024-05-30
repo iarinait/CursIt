@@ -20,16 +20,22 @@ public class LoginPage extends BasePage {
     public void clickloginIcon() {
         loginIcon.click();
     }
-        @FindBy(id = "user-name")
-        private WebElement username;
-        public void setUsername() {
-            username.sendKeys("dino");
-        }
-        @FindBy(id = "password")
-        private WebElement password;
 
-        public void setPassword(){
+    @FindBy(id = "user-name")
+    private WebElement userNameField;
 
+    public WebElement getUserNameField() {
+        return getUserNameField();
+    }
+
+    public void setUsernameField() {
+        userNameField.sendKeys("dino");
+    }
+
+    @FindBy(id = "password")
+    private WebElement password;
+
+    public void setPassword() {
         password.sendKeys("choochoo");
     }
 
@@ -45,5 +51,45 @@ public class LoginPage extends BasePage {
 
     public WebElement getUserName() {
         return userName;
+    }
+
+
+
+    @FindBy(css = ".error")
+    private WebElement userNameFieldError;
+
+    public WebElement getUserNameFieldError() {
+        return userNameFieldError;
+    }
+
+    // test negativ cu Incorect UserName
+
+    @FindBy(id = "user-name")
+    private WebElement incorrectUserName;
+
+    public void setIncorrectUserName() {
+        incorrectUserName.sendKeys("Dino");
+    }
+
+    // Test negativ 2- Password
+    @FindBy(css = ".error")
+    private WebElement passwordFieldError;
+
+    public WebElement getPasswordFieldError() {
+        return passwordFieldError;
+    }
+
+    // Test negativ 2a- wrong Password
+    @FindBy(id = "password")
+    private WebElement incorrectPassword;
+
+    public void setIncorrectPassword() {
+        incorrectPassword.sendKeys("Chocho");
+    }
+    @FindBy(css = ".error")
+    private WebElement incorectPasswordFieldError;
+
+    public WebElement getIncorrectPasswordFieldError() {
+        return incorectPasswordFieldError;
     }
 }
